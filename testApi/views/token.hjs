@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Serie_1 </title>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <script src="/javascripts/Methods.js"></script>
+    </head>
+    <body>
+       <h1>{{title}} </h1>
+       <form method="POST">
+           <legend>Ingreso de la palabra secreta:
+           </legend>
+           Palabra secreta: <br>
+           <input type="text" name="password" id="password" value ='{{secretW}}'><br>
+           Contenido: <br>
+           <textarea name="jsonContent" id="jsonContent" >{{contentJ}}</textarea>
+           <button name="generateJ" onclick ="GenerateToken()">Crear token</button><br>
+       </form>  
+       Token: <br>
+       <textarea id = "output">{{tokenValue}}</textarea>
+    </body>
+</html>
