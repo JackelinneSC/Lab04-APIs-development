@@ -4,13 +4,16 @@
     <title>{{ title }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/nice-menu.css' />
     <script src="/token.js"></script>
   </head>
   <body>
     <h1>{{ title }}</h1>
     <p>Seleccione una opción</p>
-    <ul>
-      <li> <button name="serie1" id="serie1" class="btn btn-outline-info btn-lg m-1" onclick="window.location.href='/token'">Token</button> </li>
+    <ul class="nice-menu bounce">
+      <button name="serie1" id="serie1" class="boton" onclick="window.location.href='/token'">Serie 1</button>
+      <button name="generar_JWT" id="btn_jwt" class="boton" onclick="loadJWT()">Serie 2</button>
+      <button name="generar_JWT" id="btn_jwt" class="boton" onclick="loadJWT()">Serie 3</button>
     </ul>
   </body>
 </html>

@@ -1,0 +1,17 @@
+.boton{
+  font-size:30px;
+  font-family:Verdana,Helvetica;
+  font-weight:bold;
+  color:white;
+  background:#638cb5;
+  border:0px;
+  width:130px;
+  height:55px;
+  cursor: pointer;
+ }
+ button:hover,
+ button:focus {
+   outline   : none;
+   background: #000;
+   color   : #FFF;
+ }

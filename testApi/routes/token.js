@@ -19,6 +19,7 @@ router.get('token/:content', function(req, res, next){
     }
     else{
         res.render('token', { title: 'Generación de token', secretW :'' ,contentJ:'', tokenValue:''});
+        return;
     }
     res.render('token', { title: 'Generación de token', secretW :values[1] ,contentJ:values[0], tokenValue:token});
 
