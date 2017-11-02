@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/public/pizzaFunctions.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h1 align="center">{{ title }}</h1>
+    <form action="/Pizza/CreatePizza" method="post" >
+      <div class="form-group">
+        <label class="control-label col-sm-2">Nombre</label> 
+        <input type="text" class="form-control" name="pizzaName">
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Descripción</label> 
+        <textarea class="form-control"  name="pizzaDescription">>
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Ingredientes</label><br>
+      </div>
+      <div class="form-group">
+        <div class="checkbox text-center"> 
+          <label><input type="checkbox"> Jamón</label>
+          <label><input type="checkbox"> Pepperoni</label>
+          <label><input type="checkbox"> Piña</label>
+          <label><input type="checkbox"> Champiñones</label>
+          <label><input type="checkbox"> Albahaca</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Tipo de Masa</label><br>
+      </div>
+      <div class="form-group">
+        <div class="radio text-center"> 
+          <label><input type="radio" name="doughType" id="traditionalPizza">Tradicional</label>
+          <label><input type="radio" name="doughType" id="skinnyPizza">Delgada</label>
+          <label><input type="radio" name="doughType" id="doubleDoughPizza">Doble masa</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Tamaño</label><br>
+      </div>
+      <div class="form-group">
+        <div class="radio text-center"> 
+          <label><input type="radio" name="pizzaSize" id="bigPizza">Grande</label>
+          <label><input type="radio" name="pizzaSize" id="mediumPizza">Mediana</label>
+          <label><input type="radio" name="pizzaSize" id="smallPizza">Pequeña</label>
+        </div>
+      </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Número de porciones</label> 
+        <input type="text" class="form-control" id="numberOfSlices">
+    </div> 
+    <div class="form-group">
+        <label class="control-label col-sm-2">Extra queso</label><br>
+      </div>
+    <div class="form-group">
+        <div class="radio text-center"> 
+          <label><input type="radio" name="extraCheese" id="yesExtraCheese">Sí</label>
+          <label><input type="radio" name="extraCheese" id="noExtraCheese">No</label>
+        </div>
+    </div> 
+    <div class="form-group">
+         <button name="createPizza" id="createPizza"  class="btn btn-default btn-lg">Crear pizza</button>
+      </div>
+    </form>
+  </body>
+</html>
