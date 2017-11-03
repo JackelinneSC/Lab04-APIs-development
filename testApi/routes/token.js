@@ -6,22 +6,28 @@ let jwt = require('jwt-simple');
 router.get('/', function(req, res, next){
     res.render('token', {title: "Generar token", password:'', jsonContent:'', tokenValue:''});
 });
-
-router.get('token/:content', function(req, res, next){
-   let values = req.params.content.split('&');
+function Validate(key, content){
+    if(key || content)
+        return true;
+    else
+        return false;
+}
+router.post('/', function(req, res, next){
+   
+   secretWord_ = req.body.password;
+   let token = '';
    let payload = {
-        sub : values[1],
-        iat : moment().unix(),
-        exp : moment().add(14, 'days').unix()        
+        sub : req.body.jsonContent,
+               
     };
-    if(payload){
-        let token = jwt.encode(payload,secretWord_);
+    if(Validate(secretWord_, req.body.jsonContent)){
+        token = jwt.encode(payload,secretWord_);
     }
     else{
         res.render('token', { title: 'Generación de token', secretW :'' ,contentJ:'', tokenValue:''});
         return;
     }
-    res.render('token', { title: 'Generación de token', secretW :values[1] ,contentJ:values[0], tokenValue:token});
+    res.render('token', { title: 'Generación de token', secretW :secretWord_ ,contentJ: req.body.jsonContent, tokenValue:token});
 
 });
 module.exports = router;

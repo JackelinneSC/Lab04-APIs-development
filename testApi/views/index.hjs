@@ -4,16 +4,19 @@
     <title>{{ title }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/nice-menu.css' />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/token.js"></script>
   </head>
   <body>
-    <h1>{{ title }}</h1>
+    <div class="jumbotron">
+      <h1>{{ title }}</h1>
+      
+    </div>
     <p>Seleccione una opción</p>
     <ul class="nice-menu bounce">
-      <button name="serie1" id="serie1" class="boton" onclick="window.location.href='/token'">Serie 1</button>
-      <button name="generar_JWT" id="btn_jwt" class="boton" onclick="loadJWT()">Serie 2</button>
-      <button name="generar_JWT" id="btn_jwt" class="boton" onclick="loadJWT()">Serie 3</button>
+      <button name="serie1" id="serie1" class="btn btn-info" onclick="window.location.href='/token'">Serie 1</button>
     </ul>
+
   </body>
 </html>

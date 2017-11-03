@@ -4,19 +4,29 @@
        <title>Serie_1 </title>
        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        <script src="/javascripts/Methods.js"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
        <h1>{{title}} </h1>
-       <form method="POST">
-           <legend>Ingreso de la palabra secreta:
-           </legend>
-           Palabra secreta: <br>
-           <input type="text" name="password" id="password" value ='{{secretW}}'><br>
-           Contenido: <br>
-           <textarea name="jsonContent" id="jsonContent" >{{contentJ}}</textarea>
-           <button name="generateJ" onclick ="GenerateToken()">Crear token</button><br>
-       </form>  
-       Token: <br>
-       <textarea id = "output">{{tokenValue}}</textarea>
+       <div class="panel panel-default">
+        <div class="panel-heading">
+            <form method="post" action="/token">
+                <legend>Ingreso de la palabra secreta:
+                </legend>
+                Palabra secreta: <br>
+                <input type="text" name="password" id="password" value ='{{secretW}}'><br>
+                Contenido: <br>
+                <textarea rows=5 cols=50 name="jsonContent" id="jsonContent" >{{contentJ}}</textarea><p>
+                <button name="generateJ" class="btn btn-success" type="submit">Crear token</button><br>
+            </form>  
+        </div>    
+        <div class="panel-body">
+            Token: <br>
+            <textarea id = "output" rows=6 cols=50 readonly>{{tokenValue}}</textarea>
+        </div>
+  </div>
+      
+       
     </body>
 </html>
