@@ -29,7 +29,7 @@ $(document).ready(function(){
 //https://stackoverflow.com/questions/8517071/send-json-data-via-post-ajax-and-receive-json-response-from-controller-mvc
 function sendInfoToServer(routeInServer, typeOfRequest, data){
     $.ajax({
-        url: 'http://localhost:3003/' + routeInServer,
+        url: 'http://localhost:3000/' + routeInServer,
         type: typeOfRequest,
         dataType: 'json',
         data: data       

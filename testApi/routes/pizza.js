@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-var pizzasCreated = {};
+var pizzasCreated = [];
 
 router.get('/', function(req, res, next) {
     res.render('pizza', { title: "JO's Pizza" });
@@ -13,12 +13,10 @@ router.get('/CreatePizza', function(req, res, next){
 });
 
 router.post('/CreatePizza', function(req, res, next){
-    // No puedo obtener esta info
-    pizzasCreated[req.body.name] = req.body;
+    pizzasCreated.push(req.body);
     console.log(pizzasCreated);
     // Se le asigna el status para dar a entender que se ha creado una pizza
-    res.status(201);
-    
+    res.status(201); 
 });
 
 module.exports = router;
