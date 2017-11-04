@@ -14,7 +14,11 @@ router.get('/CreatePizza', function(req, res, next){
 
 router.post('/CreatePizza', function(req, res, next){
     // No puedo obtener esta info
-    let hola = req.body;
+    pizzasCreated[req.body.name] = req.body;
+    console.log(pizzasCreated);
+    // Se le asigna el status para dar a entender que se ha creado una pizza
+    res.status(201);
+    
 });
 
 module.exports = router;
