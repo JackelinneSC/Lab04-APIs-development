@@ -15,7 +15,7 @@ $(document).ready(function(){
         pizza = {
            "name": $('#pizzaName').val(),
            "description": $('#pizzaDescription').val(),
-           "ingredients": ingredients,
+           "ingredients": ingredients.toString(), // Le doy to string porque asi sera mas facil en la vista porque solo aplico split por comas
            "doughType": $('input:radio[name=doughType]:checked').val(),
            "size": $('input:radio[name=pizzaSize]:checked').val(),
            "slices": $('#numberOfSlices').val(),

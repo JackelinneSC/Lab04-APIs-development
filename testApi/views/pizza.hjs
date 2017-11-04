@@ -3,25 +3,27 @@
   <head>
     <title>{{ title }}</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/jquery/jqueryPizza.js"></script>
+    <script src="/visualFunctions/visualFunctions.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
-  <body>
+  <body onload="showPizzas('{{ table }}');">
     <h1 align="center">{{ title }}</h1>
     <div class="container">
         <button name="goToCreatePizza" id="goToCreatePizza" onclick="window.location.href='/Pizza/CreatePizza'" class="btn btn-default btn-lg">Crear pizza</button>
     </div>
     <br>
     <div class="container">
-          <table class="table table-bordered" id="pizzaInfo">
+          <table class="table table-bordered" id="pizzas">
               <thead>
                 <tr>
                   <th>Pizza</th>
                   <th>Descripción</th>
                   <th>Ingredientes</th>
                   <th>Masa</th>
-                  <th>Extra Queso</th>
+                  <th>Tamaño</th>
                   <th>Porciones</th>
-                  <th>Opciones</th>
+                  <th>Extra Queso</th>
                 </tr>
               </thead>
               <tbody>
