@@ -4,7 +4,7 @@ $(document).ready(function(){
         event.preventDefault();
 
         // Se crea el objeto que posteriomente se enviara al servidor
-        
+        var pizza = {};
         var ingredients = [];
 
         // Obtiene el valor de todos los checkbox que fueron seleccionados
@@ -12,16 +12,19 @@ $(document).ready(function(){
         $('input[name=ingredients]:checked').each(function(){
             ingredients.push($(this).val());
         });
-        var pizza = new pizzap({
-            name: $('#pizzaName').val(),
-            description: $('#pizzaDescription').val(),
-            ingredients : ingredients.toString(),
-            doughType : $('input:radio[name=doughType]:checked').val(),
-            size : $('input:radio[name=pizzaSize]:checked').val(),
-            slices: $('#numberOfSlices').val(),
-            extraCheese :$('input:radio[name=extraCheese]:checked').val()
+        
+        pizza = {
+            "name": $('#pizzaName').val(),
+            "description": $('#pizzaDescription').val(),
+            "ingredients": ingredients.toString(), // Le doy to string porque asi sera mas facil en la vista porque solo aplico split por comas
+            "doughType": $('input:radio[name=doughType]:checked').val(),
+            "size": $('input:radio[name=pizzaSize]:checked').val(),
+            "slices": $('#numberOfSlices').val(),
+            "extraCheese": $('input:radio[name=extraCheese]:checked').val()
+         }
+        sendInfoToServer('pizza/addPizza','post',pizza, function(data){
+            window.location.href = data.url;
         });
-        sendInfoToServer('pizza/addPizza','post',pizza);
     });
 });
 //https://teamtreehouse.com/community/using-ajax-post-to-send-data-to-nodejs-server
@@ -31,6 +34,7 @@ function sendInfoToServer(routeInServer, typeOfRequest, data){
         url: 'http://localhost:3000/' + routeInServer,
         type: typeOfRequest,
         dataType: 'json',
-        data: data       
+        data: data,
+        success: successFunction      
     });
 }
