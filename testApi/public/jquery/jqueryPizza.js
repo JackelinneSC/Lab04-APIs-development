@@ -21,17 +21,46 @@ $(document).ready(function(){
            "slices": $('#numberOfSlices').val(),
            "extraCheese": $('input:radio[name=extraCheese]:checked').val()
         }
-        sendInfoToServer('Pizza/CreatePizza','post',pizza);
+        sendInfoToServer('Pizza/CreatePizza','post',pizza, function(data) {
+            window.location.href = data.url;
+        });
+    });
+
+    $(document).on('click', 'button',function(event){       
+    if (this.id === "deletePizza") {
+        let tr = $(this).closest('tr');
+        let pizzaName = tr.find('td').eq(0).text();   
+        sendInfoToServer('Pizza/DeletePizza', 'delete', {"name":pizzaName}, function(data) {
+            window.location.href = data.url;
+        });      
+    }    
+    });
+
+    $('#searchPizza').click(function(){
+        event.preventDefault();
+        
+        // Obtenemos lo que el cliente escribio en el text field
+        var pizzaName = $('#pizzaToSearch').val();
+        sendInfoToServer('Pizza/SearchPizza', 'post', {"name":pizzaName}, function(data) {
+            alert(data.mensaje);
+        });
+    });
+
+    $(document).on('click', 'button',function(event){       
+    if (this.id === "editPizza") {
+            res.render('create', { title: 'Edita tu pizza!'});   
+        }    
     });
 });
 
 //https://teamtreehouse.com/community/using-ajax-post-to-send-data-to-nodejs-server
 //https://stackoverflow.com/questions/8517071/send-json-data-via-post-ajax-and-receive-json-response-from-controller-mvc
-function sendInfoToServer(routeInServer, typeOfRequest, data){
+function sendInfoToServer(routeInServer, typeOfRequest, data, successFunction){
     $.ajax({
         url: 'http://localhost:3000/' + routeInServer,
         type: typeOfRequest,
         dataType: 'json',
-        data: data       
+        data: data,
+        success: successFunction
     });
 }

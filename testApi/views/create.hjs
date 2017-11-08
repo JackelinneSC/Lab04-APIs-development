@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1 align="center">{{ title }}</h1>
-    <form method="post">
+    <form method="post" id="createPizzaForm">
       <div class="form-group">
         <label class="control-label col-sm-2">Nombre</label> 
         <input type="text" class="form-control" name="pizzaName" id="pizzaName">
